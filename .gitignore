@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# Node/npm (if used in the future)
+node_modules/
+dist/
+build/
+
+# Python (for backend eventually)
+__pycache__/
+.env
+
