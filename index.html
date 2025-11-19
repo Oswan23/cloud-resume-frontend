@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Personal portfolio and resume website">
+    <title>Developer Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVJkEZSMUkrQ6usKNU8gohB8+RW/+usSt+mDOP4G37prsCCNy7q8yblLBS5IEFh7/ZuCnMJpok==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Sticky Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">Osaretin Ewansiha</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button id="theme-toggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container about-container">
+                <div class="about-text">
+                    <h1 class="section-title">Hi, I'm Osaretin</h1>
+                        <p class="lead">A cloud-focused technologist building backend systems and scalable infrastructure.</p>
+                        <p>I specialize in backend development and cloud architecture, with a growing focus on automation, reliability, and secure deployments. 
+                            Currently exploring serverless design patterns, container orchestration, and platform integrations across AWS and Azure.</p>
+                 </div>
+
+                <div class="about-photo" aria-hidden="false">
+                    <!-- Placeholder image source: replace with actual file (e.g. osagradpic.jpg) -->
+                    <img src="OsaGradPic.jpg" alt="Osaretin portrait" class="about-photo-img" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="education-grid">
+                    <div class="education-card">
+                        <h3>Bachelor of Science in Information Technology</h3>
+                        <p class="institution">George Mason University</p>
+                        <p class="date">2021 - 2025</p>
+                        <p>Relevant coursework: Data Structures, Algorithms, Web Development, Database Systems</p>
+                    </div>
+                    <div class="education-card">
+                        <h3>AWS Certified Solutions Architect</h3>
+                        <p class="institution">Amazon Web Services</p>
+                        <p class="date">2025-2028</p>
+                        <p>Professional certification in cloud architecture and AWS services</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <div class="container">
+                <h2 class="section-title">Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item" data-animate>
+                        <div class="timeline-date">Jun 2025 - Present</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Cloud Engineer Intern</h3>
+                            <p class="company">NecX Inc.</p>
+                            <ul>
+                                <li>Administered and configured Azure infrastructure, including Container Apps and PostgreSQL, to meet business needs.</li>
+                                <li>Migrated sensitive data to Azure Key Vault for secure management and automated access.</li>
+                                <li>Enhanced network security by implementing Virtual Networks, private endpoints, and DNS-based routing.</li>
+                                <li>Resolved connectivity issues and documented troubleshooting workflows to improve team understanding of Azure networking.</li>
+                                <li> Collaborated with engineering teams to align infrastructure with security best practices. </li>
+                            </ul>
+                            <span class="tag">Azure</span>
+                            <span class="tag">Virtual Networks</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">Git</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-animate>
+                        <div class="timeline-date">Aug 2024 - May 2025</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Time & Product Manager </h3>
+                            <p class="company">Dreamer Mother In Action</p>
+                            <ul>
+                                <li>Collaborated with cross-functional team to analyze business processes and gather system requirements for a nonprofit sponsor.</li>
+                                <li>Supported documentation of workflows, integrations, and system diagrams to streamline event management and reporting.</li>
+                                <li>Contributed to testing and implementation of digital tools (Eventbrite, Google Business, Sender) to enhance outreach and automation</li>
+                                <li></li>
+                            </ul>
+                            <span class="tag">Project Management</span>
+                            <span class="tag">Collaboration</span>
+                            <span class="tag">Requirements Gathering</span>
+                            <span class="tag">Workflow Documentation</span>
+                            <span class="tag">Stakeholder</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-animate>
+                        <div class="timeline-date">Mar 2024 - May 2025 </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Facilitator, Experiential Learnings </h3>
+                            <p class="company">The EDGE, George Mason Recreation</p>
+                            <ul>
+                                <li>Fostered open communication and collaboration within diverse groups, typically 10- 12 participants, promoting learning, trust, teamwork</li>
+                                <li>Adapted program elements to individual and group needs, driving innovation and improving group dynamics.</li>
+                                <li>Participated in agile development processes and daily standups</li>
+                            </ul>
+                            <span class="tag">Communication </span>
+                            <span class="tag">Leadership</span>
+                            <span class="tag">Team Dynamics</span>
+                            <span class="tag">Process Improvement</span>
+                        </div>
+                    </div>
+                     <div class="timeline-item" data-animate>
+                        <div class="timeline-date">May 2024 - Aug 2024 </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Web3 Security Data Analytics Extern </h3>
+                            <p class="company">Extern</p>
+                            <ul>
+                                <li>Automated data workflows for blockchain risk profiling</li>
+                                <li>Performed vulnerability and frequency analysis using Python and Excel</li>
+                                <li>Generated insights that informed security improvements.</li>
+                            </ul>
+                            <span class="tag">Python</span>
+                            <span class="tag">Excel</span>
+                            <span class="tag">Data Automation</span>
+                            <span class="tag">Risk Analysis</span>
+                            <span class="tag">Blockchain Security</span>
+                            <span class="tag">Frequecny Analysis</span>
+                            <span class="tag">Clustering</span>
+                            <span class="tag">Smart Contract Audtiting</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <!-- Projects carousel (keeps placement inside the .container) -->
+                <div class="projects-carousel-wrapper">
+                    <button class="carousel-nav prev" aria-label="Previous project">‹</button>
+                    <div class="projects-carousel" role="list" tabindex="0">
+                        <article class="project-card project-slide" role="listitem">
+                            <h3>Cloud Resume Challenge</h3>
+                            <p class="project-summary">Built a serverless resume website using AWS services including S3, CloudFront, Lambda, DynamoDB, and API Gateway.</p>
+                            <div class="project-more" hidden>
+                                <p>Implemented IaC with Terraform, added a Lambda-backed view counter, and configured CloudFront for caching and secure headers. Focused on least-privilege IAM and observability.</p>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">AWS</span>
+                                <span class="tag">Lambda</span>
+                                <span class="tag">DynamoDB</span>
+                            </div>
+                            <button class="see-more" aria-expanded="false">See more</button>
+                        </article>
+
+                        <article class="project-card project-slide" role="listitem">
+                            <h3>Serverless Translation App</h3>
+                            <p class="project-summary">Built a fully serverless cloud-native backend that uses Amazon Translate to process multilingual input. The system uses API Gateway, SQS, Lambda and DynamoDB.</p>
+                            <div class="project-more" hidden>
+                                <p>Designed for scalability and fault tolerance: requests queue on SQS, processed by Lambda workers, results persisted to DynamoDB & S3. Implemented IAM roles and CloudWatch logging for monitoring.</p>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">AWS Lambda</span>
+                                <span class="tag">Amazon Translate</span>  <span class="tag"> API Gateway</span>
+                                <span class="tag">SQS</span>  <span class="tag"> Cloudwatch</span>
+                                <span class="tag">DynamoDB</span>
+                                <span class="tag">S3</span>
+                            </div>
+                            <button class="see-more" aria-expanded="false">See more</button>
+                        </article>
+
+                        <article class="project-card project-slide" role="listitem">
+                            <h3>Sailor Boat Reservation System</h3>
+                            <p class="project-summary">Developed a backend system to manage boat reservations for sailors, ensuring efficient scheduling, validation, and concurrency protection to avoid double bookings.</p>
+                            <div class="project-more" hidden>
+                                <p>Implemented RESTful CRUD endpoints, transactional checks for availability, and robust validation. Tested for edge cases and race conditions.</p>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">API Integration</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">MySQL</span>
+                                <span class="tag">Postman</span>
+                                <span class="tag">Authentication</span>
+                            </div>
+                            <button class="see-more" aria-expanded="false">See more</button>
+                        </article>
+
+                        <article class="project-card project-slide" role="listitem">
+                            <h3>Cloud Adoption for Café Client</h3>
+                            <p class="project-summary">Modernized a café’s backend using AWS to provide scalable storage, compute, and monitoring.</p>
+                            <div class="project-more" hidden>
+                                <p>Designed a secure architecture with S3-backed content, ECS/EKS options for compute, IAM policies, and integration with monitoring/logging tools for operational visibility.</p>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">AWS EC2</span>
+                                <span class="tag"> RDS</span>  <span class="tag"> API Gateway</span>
+                                <span class="tag">Lambda</span>  <span class="tag"> IAC Cloudformation</span>
+                                <span class="tag"> VPC </span> <span class="tag"> CloudShell </span> 
+                                <span class="tag">S3</span>
+                            </div>
+                            <button class="see-more" aria-expanded="false">See more</button>
+                        </article>
+                    </div>
+                    <button class="carousel-nav next" aria-label="Next project">›</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title">Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>☁️ Cloud & Infrastructure</h3>
+                        <ul>
+                            <li>AWS (EC2, S3, Lambda, RDS, DynamoDB ... )</li>
+                            <li>Azure(Container Apps, Virtual Networks...)</li>
+                            <li>IAC - Cloudformation, ARM/Bicep</li>
+                            <li>Linux Systems</li>
+                            <li>Networking</li>
+                            <li>Cost Optimization & Cloud Monitoring</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🧑🏽‍💻DevOps & Automation</h3>
+                        <ul>
+                            <li>CI/CD Pipelines (GitHub Actions, CodePipeline) </li>
+                            <li>Docker & Containerization</li>
+                            <li>Version Control (Git, GitHub)</li>
+                            <li>Scripting (Python, Bash, CLI)</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🌐 Networking & Security</h3>
+                        <ul>
+                            <li>TCP/IP, DNS, VPNs, VLANs</li>
+                            <li>IAM & RBAC</li>
+                            <li>Firewalls & Network Segmentation </li>
+                            <li>Security Auditing & Compliance Principles </li>
+                            <li>Wireshark • Nmap • Kali Linux </li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Data & Tools</h3>
+                        <ul>
+                            <li>Git & GitHub</li>
+                            <li>VS Code</li>
+                            <li>Postman</li>
+                            <li>Agile/Scrum</li>
+                            <li>SQL • MySQL • Excel </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Click Tracker Section -->
+        <section id="click-tracker" class="section">
+            <div class="container">
+                <h2 class="section-title">Click Tracker</h2>
+                <div class="click-tracker-content">
+                    <button id="click-button" class="click-button">Click Me</button>
+                    <p class="click-count-display">Total Clicks: <span id="click-count">0</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="lead">I'd love to hear from you! Whether you have a project in mind, want to collaborate, or just chat about cloud technologies and web development, feel free to reach out.</p>
+                
+                <div class="contact-content">
+                    <p class="contact-message">Connect with me on social media or send me an email directly:</p>
+                    
+                    <div class="contact-icons">
+                        <a href="mailto:osaewan23@gmail.com" class="contact-icon email-icon" aria-label="Send me an email">
+                            <!-- Email / Envelope SVG -->
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <title>Email</title>
+                                <path fill="currentColor" d="M2.25 6.75A2.25 2.25 0 014.5 4.5h15A2.25 2.25 0 0121.75 6.75v10.5A2.25 2.25 0 0119.5 19.5h-15A2.25 2.25 0 012.25 17.25V6.75zM3.75 7.5l8.25 5.25L20.25 7.5" />
+                            </svg>
+                        </a>
+                        <a href="https://github.com/Oswan23" target="_blank" rel="noopener noreferrer" class="contact-icon github-icon" aria-label="Visit my GitHub profile">
+                            <!-- GitHub SVG -->
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <title>GitHub</title>
+                                <path fill="currentColor" d="M12 .5C5.37.5.5 5.37.5 12c0 4.88 3.16 9.02 7.55 10.48.55.1.75-.24.75-.53v-1.85c-3.07.67-3.72-1.48-3.72-1.48-.5-1.29-1.22-1.63-1.22-1.63-.99-.68.08-.67.08-.67 1.09.08 1.66 1.12 1.66 1.12.97 1.66 2.54 1.18 3.16.9.1-.7.38-1.18.69-1.45-2.45-.28-5.02-1.23-5.02-5.48 0-1.21.43-2.2 1.12-2.98-.11-.28-.49-1.41.11-2.94 0 0 .92-.29 3.02 1.13.88-.25 1.82-.37 2.76-.37.94 0 1.88.12 2.76.37 2.1-1.42 3.02-1.13 3.02-1.13.6 1.53.22 2.66.11 2.94.7.78 1.12 1.77 1.12 2.98 0 4.26-2.57 5.19-5.02 5.48.39.34.73.99.73 2v2.97c0 .29.2.64.76.53C20.84 21.02 24 16.88 24 12c0-6.63-5.37-11.5-12-11.5z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/david-ewansiha/" target="_blank" rel="noopener noreferrer" class="contact-icon linkedin-icon" aria-label="Connect with me on LinkedIn">
+                            <!-- LinkedIn SVG -->
+                            <svg viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <title>LinkedIn</title>
+                                <path fill="currentColor" d="M34 20.1v13.5h-7.1V20.9c0-3.5-1.3-5.9-4.5-5.9-2.4 0-3.8 1.6-4.4 3.1-.2.5-.2 1.2-.2 1.9v13.5H10.2c0 0 .1-21.9 0-24.2h7.1v3.4c0 0 4.7-6.9 11.5-6.9C31.9 7.8 34 12.1 34 20.1zM4.1 0C1.8 0 0 1.8 0 4.1 0 6.3 1.8 8.1 4.1 8.1 6.3 8.1 8.1 6.3 8.1 4.1 8.1 1.8 6.3 0 4.1 0zM0 33.6h8.2V9.4H0V33.6z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Osaretin Ewansiha. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Sticky View Counter -->
+    <div id="view-counter" class="view-counter">
+        Views: <span id="view-count">0</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
