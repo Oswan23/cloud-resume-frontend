@@ -23,10 +23,7 @@ jobs:
       run: |
         aws s3 sync . s3://$S3_BUCKET \
           --exclude "*" \
-          --include "index.html" \
-          --include "style.css" \
-          --include "script.js" \
-          --include "assets/*" \
+          --include "frontend/*" \
           --delete
 
       
