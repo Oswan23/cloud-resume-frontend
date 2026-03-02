@@ -12,39 +12,39 @@
 <body>
     <!-- Sticky Navigation -->
     <nav id="navbar">
-        <div class="nav-container">
-            <div class="nav-brand">Osaretin Ewansiha</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button id="theme-toggle" aria-label="Toggle theme">
-                <span class="theme-icon">🌙</span>
-            </button>
-        </div>
+    <div class="nav-container">
+        <div class="nav-brand">Osaretin Ewansiha</div>
+        <button class="menu-toggle" aria-label="Toggle Navigation">☰</button>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button id="theme-toggle" aria-label="Toggle theme">
+            <span class="theme-icon">🌙</span>
+        </button>
+    </div>
     </nav>
 
     <main>
         <!-- About Section -->
         <section id="about" class="section">
-            <div class="container about-container">
-                <div class="about-text">
-                    <h1 class="section-title">Hi, I'm Osaretin</h1>
-                        <p class="lead">A cloud-focused technologist building backend systems and scalable infrastructure.</p>
-                        <p>I specialize in backend development and cloud architecture, with a growing focus on automation, reliability, and secure deployments. 
-                            Currently exploring serverless design patterns, container orchestration, and platform integrations across AWS and Azure.</p>
-                 </div>
-
-                <div class="about-photo" aria-hidden="false">
-                    <!-- Placeholder image source: replace with actual file (e.g. osagradpic.jpg) -->
-                    <img src="OsaGradPic.jpg" alt="Osaretin portrait" class="about-photo-img" loading="lazy">
+        <div class="container about-container">
+            <div class="about-text">
+                <h1 class="section-title">Osaretin David Ewansiha</h1>
+                <p class="lead">Cloud Engineer specializing in Azure and AWS infrastructure security and automation.</p>
+                <p>Focused on building scalable, secure backend systems. I have a concentration in **Cloud Computing** from George Mason University (GPA: 3.5) and hold multiple AWS certifications [cite: 60-63, 108].</p>
+                <div class="iac-badge">
+                    <code>Infrastructure as Code: Managed via Terraform & GitHub Actions</code>
                 </div>
             </div>
-        </section>
+            <div class="about-photo">
+                <img src="OsaGradPic.jpg" alt="Osaretin portrait" class="about-photo-img" loading="lazy">
+            </div>
+        </div>
+    </section>
 
         <!-- Education Section -->
         <section id="education" class="section">
@@ -69,88 +69,72 @@
 
         <!-- Experience Section -->
         <section id="experience" class="section">
-            <div class="container">
-                <h2 class="section-title">Experience</h2>
-                <div class="timeline">
-                    <div class="timeline-item" data-animate>
-                        <div class="timeline-date">Jun 2025 - Present</div>
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h3>Cloud Engineer Intern</h3>
-                            <p class="company">NecX Inc.</p>
-                            <ul>
-                                <li>Administered and configured Azure infrastructure, including Container Apps and PostgreSQL, to meet business needs.</li>
-                                <li>Migrated sensitive data to Azure Key Vault for secure management and automated access.</li>
-                                <li>Enhanced network security by implementing Virtual Networks, private endpoints, and DNS-based routing.</li>
-                                <li>Resolved connectivity issues and documented troubleshooting workflows to improve team understanding of Azure networking.</li>
-                                <li> Collaborated with engineering teams to align infrastructure with security best practices. </li>
-                            </ul>
-                            <span class="tag">Azure</span>
-                            <span class="tag">Virtual Networks</span>
-                            <span class="tag">Docker</span>
-                            <span class="tag">Git</span>
-                        </div>
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-animate>
+                    <div class="timeline-date">July 2025 - Present</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Junior Cloud Engineer</h3>
+                        <p class="company">NecX Inc.</p>
+                        <ul>
+                            <li>Hardened network architecture using private endpoints, VPN gateways, and NSGs, eliminating public exposure of 10+ cloud components[cite: 71].</li>
+                            <li>Implemented Entra ID RBAC and Azure Key Vault for centralized secret storage, reducing manual credential handling[cite: 72].</li>
+                            <li>Built CI/CD pipelines with GitHub Actions and Azure Pipelines, reducing deployment time by 40-50%[cite: 73].</li>
+                        </ul>
+                        <span class="tag">Azure</span><span class="tag">PostgreSQL</span><span class="tag">RBAC</span><span class="tag">CI/CD</span>
                     </div>
-                    <div class="timeline-item" data-animate>
-                        <div class="timeline-date">Aug 2024 - May 2025</div>
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h3>Time & Product Manager </h3>
-                            <p class="company">Dreamer Mother In Action</p>
-                            <ul>
-                                <li>Collaborated with cross-functional team to analyze business processes and gather system requirements for a nonprofit sponsor.</li>
-                                <li>Supported documentation of workflows, integrations, and system diagrams to streamline event management and reporting.</li>
-                                <li>Contributed to testing and implementation of digital tools (Eventbrite, Google Business, Sender) to enhance outreach and automation</li>
-                                <li></li>
-                            </ul>
-                            <span class="tag">Project Management</span>
-                            <span class="tag">Collaboration</span>
-                            <span class="tag">Requirements Gathering</span>
-                            <span class="tag">Workflow Documentation</span>
-                            <span class="tag">Stakeholder</span>
-                        </div>
+                </div>
+
+                <div class="timeline-item" data-animate>
+                    <div class="timeline-date">Aug 2024 - May 2025</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Time & Product Manager</h3>
+                        <p class="company">Dreamer Mother In Action (DMIA)</p>
+                        <ul>
+                            <li>Implemented solutions using Eventbrite, Zapier, and Google Business tools, reducing manual promotion time by 60-70%[cite: 78].</li>
+                            <li>Collaborated with stakeholders to translate business needs into scalable digital solutions for event management[cite: 79].</li>
+                        </ul>
+                        <span class="tag">Zapier</span><span class="tag">Agile</span><span class="tag">Automation</span>
                     </div>
-                    <div class="timeline-item" data-animate>
-                        <div class="timeline-date">Mar 2024 - May 2025 </div>
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h3>Facilitator, Experiential Learnings </h3>
-                            <p class="company">The EDGE, George Mason Recreation</p>
-                            <ul>
-                                <li>Fostered open communication and collaboration within diverse groups, typically 10- 12 participants, promoting learning, trust, teamwork</li>
-                                <li>Adapted program elements to individual and group needs, driving innovation and improving group dynamics.</li>
-                                <li>Participated in agile development processes and daily standups</li>
-                            </ul>
-                            <span class="tag">Communication </span>
-                            <span class="tag">Leadership</span>
-                            <span class="tag">Team Dynamics</span>
-                            <span class="tag">Process Improvement</span>
-                        </div>
+                </div>
+
+                <div class="timeline-item" data-animate>
+                    <div class="timeline-date">Summer 2024</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Web3 Security Data Analytics Extern</h3>
+                        <p class="company">Webacy</p>
+                        <ul>
+                            <li>Automated data workflows in Python to support risk profiling and intrusion detection[cite: 83].</li>
+                            <li>Conducted smart contract vulnerability analysis and enhanced clustering for threat detection[cite: 84].</li>
+                        </ul>
+                        <span class="tag">Python</span><span class="tag">Smart Contracts</span><span class="tag">Web3</span>
                     </div>
-                     <div class="timeline-item" data-animate>
-                        <div class="timeline-date">May 2024 - Aug 2024 </div>
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h3>Web3 Security Data Analytics Extern </h3>
-                            <p class="company">Extern</p>
-                            <ul>
-                                <li>Automated data workflows for blockchain risk profiling</li>
-                                <li>Performed vulnerability and frequency analysis using Python and Excel</li>
-                                <li>Generated insights that informed security improvements.</li>
-                            </ul>
-                            <span class="tag">Python</span>
-                            <span class="tag">Excel</span>
-                            <span class="tag">Data Automation</span>
-                            <span class="tag">Risk Analysis</span>
-                            <span class="tag">Blockchain Security</span>
-                            <span class="tag">Frequecny Analysis</span>
-                            <span class="tag">Clustering</span>
-                            <span class="tag">Smart Contract Audtiting</span>
-                        </div>
+                </div>
+
+                <div class="timeline-item" data-animate>
+                    <div class="timeline-date">Mar 2024 - May 2025 </div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Facilitator, Experiential Learnings </h3>
+                        <p class="company">The EDGE, George Mason Recreation</p>
+                        <ul>
+                            <li>Fostered open communication and collaboration within diverse groups, typically 10- 12 participants, promoting learning, trust, teamwork</li>
+                            <li>Adapted program elements to individual and group needs, driving innovation and improving group dynamics.</li>
+                            <li>Participated in agile development processes and daily standups</li>
+                        </ul>
+                        <span class="tag">Communication </span>
+                        <span class="tag">Leadership</span>
+                        <span class="tag">Team Dynamics</span>
+                        <span class="tag">Process Improvement</span>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
         <!-- Projects Section -->
         <section id="projects" class="section">
@@ -160,6 +144,22 @@
                 <div class="projects-carousel-wrapper">
                     <button class="carousel-nav prev" aria-label="Previous project">‹</button>
                     <div class="projects-carousel" role="list" tabindex="0">
+                        <article class="project-card project-slide" role="listitem">
+                            <h3>cRex 23 - Translation Tool for Manga </h3>
+                            <p class="project-summary">This is a serverless OCR backend designed to extract and structure text from manga and comic images to support translation workflows. It processes image uploads through a scalable AWS pipeline, returning clean, readable text blocks ready for downstream translation.</p>
+                            <div class="project-more" hidden>
+                                <p>The system is built with Node.js, Express, AWS Lambda, API Gateway, S3, and DynamoDB, and integrates Google Vision OCR for high-accuracy text recognition across multiple languages.</p>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">AWS</span>
+                                <span class="tag">NodeJs</span>
+                                <span class="tag">Lambda</span>
+                                <span class="tag">API Gateway</span>
+                                <span class="tag">Google OCR</span>
+                            </div>
+                            <button class="see-more" aria-expanded="false">See more</button>
+                        </article>
+                        
                         <article class="project-card project-slide" role="listitem">
                             <h3>Cloud Resume Challenge</h3>
                             <p class="project-summary">Built a serverless resume website using AWS services including S3, CloudFront, Lambda, DynamoDB, and API Gateway.</p>
