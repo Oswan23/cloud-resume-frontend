@@ -774,11 +774,30 @@ footer {
 }
 
 /* Infrastructure Badge Style */
-.iac-badge {
+.iac-badge,
+.resume-badge {
     margin-top: 1rem;
     padding: 0.5rem;
     background: var(--bg-secondary);
     border-left: 4px solid var(--accent);
     display: inline-block;
     font-size: 0.8rem;
+    color: var(--text-primary);
+    min-width: 300px; /* keep badges visually equal length on larger viewports */
+}
+
+.iac-badge code,
+.resume-badge code,
+.resume-badge a {
+    color: inherit;
+    text-decoration: none;
+}
+
+@media (max-width: 520px) {
+  .iac-badge,
+  .resume-badge {
+    min-width: auto;
+    display: block;
+    width: 100%;
+  }
 }
