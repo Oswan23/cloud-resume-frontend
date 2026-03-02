@@ -36,13 +36,14 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     }
   })
   
-  // Mobile hamburger menu toggle  
+  // Mobile hamburger menu toggle
   const menuToggle = document.querySelector(".menu-toggle");
-  const navLinksContainer = document.querySelector(".nav-links");
+  const navLinks = document.querySelector(".nav-links");
+  //const navLinksContainer = document.querySelector(".nav-links");
 
-  menuToggle.addEventListener("click", () => {
-      navLinksContainer.classList.toggle("active");
-  });
+  // menuToggle.addEventListener("click", () => {
+  //     navLinksContainer.classList.toggle("active");
+  // });
 
   if (menuToggle && navLinks) {
     // make the button accessible by toggling aria-expanded on click
