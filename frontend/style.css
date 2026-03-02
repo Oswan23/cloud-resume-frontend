@@ -720,3 +720,65 @@ footer {
     white-space: normal;
   }
 }
+
+/* Mobile Hamburger Menu Styles */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--bg-primary);
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 4px 10px var(--shadow);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    /* Fix About Section Layout */
+    .about-container {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .about-photo {
+        margin-bottom: 2rem;
+    }
+
+    /* Fix Timeline for Mobile */
+    .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .timeline-date {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Infrastructure Badge Style */
+.iac-badge {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background: var(--bg-secondary);
+    border-left: 4px solid var(--accent);
+    display: inline-block;
+    font-size: 0.8rem;
+}

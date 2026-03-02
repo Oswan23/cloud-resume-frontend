@@ -12,20 +12,20 @@
 <body>
     <!-- Sticky Navigation -->
     <nav id="navbar">
-        <div class="nav-container">
-            <div class="nav-brand">Osaretin Ewansiha</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button id="theme-toggle" aria-label="Toggle theme">
-                <span class="theme-icon">🌙</span>
-            </button>
-        </div>
+    <div class="nav-container">
+        <div class="nav-brand">Osaretin Ewansiha</div>
+        <button class="menu-toggle" aria-label="Toggle Navigation">☰</button>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button id="theme-toggle" aria-label="Toggle theme">
+            <span class="theme-icon">🌙</span>
+        </button>
+    </div>
     </nav>
 
     <main>
@@ -35,9 +35,13 @@
                 <div class="about-text">
                     <h1 class="section-title">Hi, I'm Osaretin</h1>
                         <p class="lead">A cloud-focused technologist building backend systems and scalable infrastructure.</p>
-                        <p>I specialize in backend development and cloud architecture, with a growing focus on automation, reliability, and secure deployments. 
+                        <p>I specialize in cloud architecture, focusing on automation, reliability, and secure deployments. 
                             Currently exploring serverless design patterns, container orchestration, and platform integrations across AWS and Azure.</p>
-                 </div>
+                        <p> I have a concentration in Cloud Computing from George Mason University (GPA: 3.5) and hold multiple AWS certifications </p>
+                    <div class="iac-badge">
+                    <code>Infrastructure as Code: Managed via Terraform & GitHub Actions</code>
+                    </div>
+                </div>
 
                 <div class="about-photo" aria-hidden="false">
                     <!-- Placeholder image source: replace with actual file (e.g. osagradpic.jpg) -->
@@ -45,6 +49,7 @@
                 </div>
             </div>
         </section>
+
 
         <!-- Education Section -->
         <section id="education" class="section">
@@ -69,48 +74,39 @@
 
         <!-- Experience Section -->
         <section id="experience" class="section">
-            <div class="container">
-                <h2 class="section-title">Experience</h2>
-                <div class="timeline">
-                    <div class="timeline-item" data-animate>
-                        <div class="timeline-date">Jun 2025 - Present</div>
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h3>Cloud Engineer Intern</h3>
-                            <p class="company">NecX Inc.</p>
-                            <ul>
-                                <li>Administered and configured Azure infrastructure, including Container Apps and PostgreSQL, to meet business needs.</li>
-                                <li>Migrated sensitive data to Azure Key Vault for secure management and automated access.</li>
-                                <li>Enhanced network security by implementing Virtual Networks, private endpoints, and DNS-based routing.</li>
-                                <li>Resolved connectivity issues and documented troubleshooting workflows to improve team understanding of Azure networking.</li>
-                                <li> Collaborated with engineering teams to align infrastructure with security best practices. </li>
-                            </ul>
-                            <span class="tag">Azure</span>
-                            <span class="tag">Virtual Networks</span>
-                            <span class="tag">Docker</span>
-                            <span class="tag">Git</span>
-                        </div>
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-animate>
+                    <div class="timeline-date">July 2025 - Present</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Junior Cloud Engineer</h3>
+                        <p class="company">NecX Inc.</p>
+                        <ul>
+                            <li>Hardened network architecture using private endpoints, VPN gateways, and NSGs, eliminating public exposure of 10+ cloud components[cite: 71].</li>
+                            <li>Implemented Entra ID RBAC and Azure Key Vault for centralized secret storage, reducing manual credential handling[cite: 72].</li>
+                            <li>Built CI/CD pipelines with GitHub Actions and Azure Pipelines, reducing deployment time by 40-50%[cite: 73].</li>
+                        </ul>
+                        <span class="tag">Azure</span><span class="tag">PostgreSQL</span><span class="tag">RBAC</span><span class="tag">CI/CD</span>
                     </div>
-                    <div class="timeline-item" data-animate>
-                        <div class="timeline-date">Aug 2024 - May 2025</div>
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h3>Time & Product Manager </h3>
-                            <p class="company">Dreamer Mother In Action</p>
-                            <ul>
-                                <li>Collaborated with cross-functional team to analyze business processes and gather system requirements for a nonprofit sponsor.</li>
-                                <li>Supported documentation of workflows, integrations, and system diagrams to streamline event management and reporting.</li>
-                                <li>Contributed to testing and implementation of digital tools (Eventbrite, Google Business, Sender) to enhance outreach and automation</li>
-                                <li></li>
-                            </ul>
-                            <span class="tag">Project Management</span>
-                            <span class="tag">Collaboration</span>
-                            <span class="tag">Requirements Gathering</span>
-                            <span class="tag">Workflow Documentation</span>
-                            <span class="tag">Stakeholder</span>
-                        </div>
+                </div>
+
+                <div class="timeline-item" data-animate>
+                    <div class="timeline-date">Aug 2024 - May 2025</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Time & Product Manager</h3>
+                        <p class="company">Dreamer Mother In Action (DMIA)</p>
+                        <ul>
+                            <li>Implemented solutions using Eventbrite, Zapier, and Google Business tools, reducing manual promotion time by 60-70%[cite: 78].</li>
+                            <li>Collaborated with stakeholders to translate business needs into scalable digital solutions for event management[cite: 79].</li>
+                        </ul>
+                        <span class="tag">Zapier</span><span class="tag">Agile</span><span class="tag">Automation</span>
                     </div>
-                    <div class="timeline-item" data-animate>
+                </div>
+
+                <div class="timeline-item" data-animate>
                         <div class="timeline-date">Mar 2024 - May 2025 </div>
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
@@ -119,37 +115,29 @@
                             <ul>
                                 <li>Fostered open communication and collaboration within diverse groups, typically 10- 12 participants, promoting learning, trust, teamwork</li>
                                 <li>Adapted program elements to individual and group needs, driving innovation and improving group dynamics.</li>
-                                <li>Participated in agile development processes and daily standups</li>
                             </ul>
                             <span class="tag">Communication </span>
                             <span class="tag">Leadership</span>
                             <span class="tag">Team Dynamics</span>
                             <span class="tag">Process Improvement</span>
                         </div>
-                    </div>
-                     <div class="timeline-item" data-animate>
-                        <div class="timeline-date">May 2024 - Aug 2024 </div>
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h3>Web3 Security Data Analytics Extern </h3>
-                            <p class="company">Extern</p>
-                            <ul>
-                                <li>Automated data workflows for blockchain risk profiling</li>
-                                <li>Performed vulnerability and frequency analysis using Python and Excel</li>
-                                <li>Generated insights that informed security improvements.</li>
-                            </ul>
-                            <span class="tag">Python</span>
-                            <span class="tag">Excel</span>
-                            <span class="tag">Data Automation</span>
-                            <span class="tag">Risk Analysis</span>
-                            <span class="tag">Blockchain Security</span>
-                            <span class="tag">Frequecny Analysis</span>
-                            <span class="tag">Clustering</span>
-                            <span class="tag">Smart Contract Audtiting</span>
-                        </div>
+                </div>
+
+                <div class="timeline-item" data-animate>
+                    <div class="timeline-date">Summer 2024</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Web3 Security Data Analytics Extern</h3>
+                        <p class="company">Webacy</p>
+                        <ul>
+                            <li>Automated data workflows in Python to support risk profiling and intrusion detection[cite: 83].</li>
+                            <li>Conducted smart contract vulnerability analysis and enhanced clustering for threat detection[cite: 84].</li>
+                        </ul>
+                        <span class="tag">Python</span><span class="tag">Smart Contracts</span><span class="tag">Web3</span>
                     </div>
                 </div>
             </div>
+        </div>
         </section>
 
         <!-- Projects Section -->
@@ -326,7 +314,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Osaretin Ewansiha. All rights reserved.</p>
+            <p>&copy; 2025 Osaretin Ewansiha. All rights reserved. | <b>Managed with AWS SAM & GitHub Actions </p>
         </div>
     </footer>
 
