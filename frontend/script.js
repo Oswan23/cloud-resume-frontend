@@ -35,6 +35,28 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       })
     }
   })
+
+  // Mobile hamburger menu toggle
+  const menuToggle = document.querySelector('.menu-toggle')
+  const navLinks = document.querySelector('.nav-links')
+
+  if (menuToggle && navLinks) {
+    // make the button accessible by toggling aria-expanded on click
+    menuToggle.setAttribute('aria-expanded', 'false')
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('active')
+      menuToggle.setAttribute('aria-expanded', isOpen.toString())
+    })
+
+    // close the menu after clicking a link (mobile UX)
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (navLinks.classList.contains('active')) {
+          navLinks.classList.remove('active')
+        }
+      })
+    })
+  }
 })
 
 // Timeline Animation on Scroll

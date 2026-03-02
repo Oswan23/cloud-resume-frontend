@@ -56,21 +56,24 @@ body {
   transition: background-color 0.3s ease;
 }
 
+
 .nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    position: relative;
+    height: 70px;
 }
 
 .nav-brand {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--accent);
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--accent);
+    transition: all 0.3s ease;
 }
-
 .nav-links {
   display: flex;
   list-style: none;
@@ -585,21 +588,58 @@ footer {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+  /* keep nav container relative so we can absolutely position the toggles/brand */
   .nav-container {
-    padding: 1rem;
+    display: flex;
+    justify-content: space-between; /* Spreads toggle and hamburger to ends */
+    position: relative; /* already set earlier but keep for clarity */
   }
 
+  /* center the brand and make it non-interactive so it won't block the
+     hamburger/theme buttons when they move to the corners */
+  .nav-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* ensure the toggles sit in the left/right corners on mobile */
+  #theme-toggle {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    order: 1;
+  }
+
+  .menu-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    order: 3;
+  }
+
+  /* mobile nav links dropdown */
   .nav-links {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
-    right: 0;
+    width: 100%;
     background: var(--bg-primary);
     flex-direction: column;
     padding: 1rem;
-    border-bottom: 1px solid var(--border);
-    gap: 0;
+    z-index: 1001; /* stay above other content */
+    box-shadow: 0 4px 10px var(--shadow);
+  }
+
+  .nav-links.active {
+    display: flex;
   }
 
   .nav-links.active {
@@ -682,55 +722,31 @@ footer {
 }
 
 /* Mobile Hamburger Menu Styles */
+/* basic hamburger button style (non-responsive) */
 .menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: var(--text-primary);
-    cursor: pointer;
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  cursor: pointer;
 }
 
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
+/* additional responsive fixes for about section are already above */
+@media (max-width: 480px) {
+  .about-container {
+    margin-bottom: 2rem;
+  }
 
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--bg-primary);
-        flex-direction: column;
-        padding: 1rem;
-        box-shadow: 0 4px 10px var(--shadow);
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    /* Fix About Section Layout */
-    .about-container {
-        flex-direction: column-reverse;
-        text-align: center;
-    }
-
-    .about-photo {
-        margin-bottom: 2rem;
-    }
-
-    /* Fix Timeline for Mobile */
-    .timeline-item {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-    
-    .timeline-date {
-        margin-bottom: 0.5rem;
-    }
+  /* Fix Timeline for Mobile */
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .timeline-date {
+    margin-bottom: 0.5rem;
+  }
 }
 
 /* Infrastructure Badge Style */
