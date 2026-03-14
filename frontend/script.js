@@ -165,7 +165,7 @@ clickButton.addEventListener("click", async () => {
     clickCooldown = false;
     clickButton.style.opacity = "1";
     clickButton.style.cursor = "pointer";
-  }, 1000); // 1000ms cooldown
+  }, 300); // 300ms cooldown
 
   // Animation
   clickButton.style.transform = "scale(0.95)";
