@@ -10,6 +10,11 @@
     <!-- Font Awesome for social icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Initialize theme early to prevent white flash on load -->
+    <script>
+        const savedTheme = localStorage.getItem("theme") || "light";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+    </script>
 </head>
 
 <body>
@@ -50,7 +55,8 @@
 
                     </div>
                     <div class="resume-badge">
-                        <a href="David-Cloud-Resume.pdf" download aria-label="View resume (PDF)">
+                        <a href="Osaretin-Cloud-Resume-0.pdf" target="_blank" rel="noopener noreferrer"
+                            aria-label="View resume (PDF)">
                             <code>View my Resume</code>
                         </a>
                     </div>
@@ -311,7 +317,11 @@
                 <h2 class="section-title">Click Tracker</h2>
                 <div class="click-counter">
                     <button id="click-button" class="click-button">Click Me</button>
-                    <p class="click-count-display">Total Clicks: <span id="click-count"></span></p>
+                    <p class="click-count-display">
+                        Total Clicks: <span id="click-count"></span>
+                        <button id="click-lock" class="click-lock" aria-label="Toggle click persistence"
+                            title="Lock local click count">🔓</button>
+                    </p>
                 </div>
             </div>
         </section>

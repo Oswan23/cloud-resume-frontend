@@ -58,22 +58,23 @@ body {
 
 
 .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-    position: relative;
-    height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  height: 70px;
 }
 
 .nav-brand {
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: var(--accent);
-    transition: all 0.3s ease;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--accent);
+  transition: all 0.3s ease;
 }
+
 .nav-links {
   display: flex;
   list-style: none;
@@ -394,8 +395,10 @@ body {
   .projects-carousel {
     gap: 0.5rem;
   }
+
   .carousel-nav {
-    display: none; /* rely on touch swipe on small screens */
+    display: none;
+    /* rely on touch swipe on small screens */
   }
 }
 
@@ -588,11 +591,14 @@ footer {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+
   /* keep nav container relative so we can absolutely position the toggles/brand */
   .nav-container {
     display: flex;
-    justify-content: space-between; /* Spreads toggle and hamburger to ends */
-    position: relative; /* already set earlier but keep for clarity */
+    justify-content: space-between;
+    /* Spreads toggle and hamburger to ends */
+    position: relative;
+    /* already set earlier but keep for clarity */
   }
 
   /* center the brand and make it non-interactive so it won't block the
@@ -634,7 +640,8 @@ footer {
     background: var(--bg-primary);
     flex-direction: column;
     padding: 1rem;
-    z-index: 1001; /* stay above other content */
+    z-index: 1001;
+    /* stay above other content */
     box-shadow: 0 4px 10px var(--shadow);
   }
 
@@ -715,6 +722,7 @@ footer {
   .lead {
     font-size: 1.1rem;
   }
+
   /* Allow timeline dates to wrap on very small screens to avoid overflow */
   .timeline-date {
     white-space: normal;
@@ -723,81 +731,103 @@ footer {
 
 /* Mobile Hamburger Menu Styles */
 .menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: var(--text-primary);
-    cursor: pointer;
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
+  .menu-toggle {
+    display: block;
+  }
 
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--bg-primary);
-        flex-direction: column;
-        padding: 1rem;
-        box-shadow: 0 4px 10px var(--shadow);
-    }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--bg-primary);
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 4px 10px var(--shadow);
+  }
 
-    .nav-links.active {
-        display: flex;
-    }
+  .nav-links.active {
+    display: flex;
+  }
 
-    /* Fix About Section Layout */
-    .about-container {
-        flex-direction: column-reverse;
-        text-align: center;
-    }
+  /* Fix About Section Layout */
+  .about-container {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
 
-    .about-photo {
-        margin-bottom: 2rem;
-    }
+  .about-photo {
+    margin-bottom: 2rem;
+  }
 
-    /* Fix Timeline for Mobile */
-    .timeline-item {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-    
-    .timeline-date {
-        margin-bottom: 0.5rem;
-    }
+  /* Fix Timeline for Mobile */
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .timeline-date {
+    margin-bottom: 0.5rem;
+  }
 }
 
 /* Infrastructure Badge Style */
 .iac-badge,
 .resume-badge {
-    margin-top: 1rem;
-    padding: 0.5rem;
-    background: var(--bg-secondary);
-    border-left: 4px solid var(--accent);
-    display: inline-block;
-    font-size: 0.8rem;
-    color: var(--text-primary);
-    min-width: 300px; /* keep badges visually equal length on larger viewports */
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background: var(--bg-secondary);
+  border-left: 4px solid var(--accent);
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  min-width: 300px;
+  /* keep badges visually equal length on larger viewports */
 }
 
 .iac-badge code,
 .resume-badge code,
 .resume-badge a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 @media (max-width: 520px) {
+
   .iac-badge,
   .resume-badge {
     min-width: auto;
     display: block;
     width: 100%;
   }
+}
+
+/* Subtle Click Lock Icon */
+.click-lock {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+  vertical-align: middle;
+}
+
+.click-lock:hover {
+  opacity: 1;
+}
+
+[data-theme="dark"] .click-lock {
+  filter: grayscale(0.5) brightness(1.2);
 }

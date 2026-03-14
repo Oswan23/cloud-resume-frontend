@@ -4,9 +4,8 @@ const themeIcon = document.querySelector(".theme-icon")
 const html = document.documentElement
 const API_BASE = "https://fjwy1ub4ge.execute-api.us-east-1.amazonaws.com";
 
-// Load saved theme from localStorage
+// Only update the icon (theme is set in index.html head to prevent flash)
 const savedTheme = localStorage.getItem("theme") || "light"
-html.setAttribute("data-theme", savedTheme)
 updateThemeIcon(savedTheme)
 
 themeToggle.addEventListener("click", () => {
@@ -89,18 +88,29 @@ timelineItems.forEach((item) => {
 const viewCountDisplay = document.getElementById("view-count");
 const clickButton = document.getElementById("click-button");
 const clickCountDisplay = document.getElementById("click-count");
+const clickLockBtn = document.getElementById("click-lock");
 
 // Initialize both counters on page load
 async function initializeCounters() {
   // 1. Optimistic loading from cache to prevent jarring "0" flashes
   const cachedViews = localStorage.getItem("viewCount");
-  const cachedClicks = localStorage.getItem("clickCount");
+
+  // Click lock logic: only use cache if user locked it
+  const isClicksLocked = localStorage.getItem("clicksLocked") === "true";
+  if (clickLockBtn) {
+    clickLockBtn.textContent = isClicksLocked ? "🔒" : "🔓";
+    clickLockBtn.title = isClicksLocked ? "Unlock local click count" : "Lock local click count across reloads";
+  }
 
   if (cachedViews) viewCountDisplay.textContent = cachedViews;
   else viewCountDisplay.innerHTML = '<span class="loading-dots" style="opacity: 0.5;">...</span>';
 
-  if (cachedClicks) clickCountDisplay.textContent = cachedClicks;
-  else clickCountDisplay.innerHTML = '<span class="loading-dots" style="opacity: 0.5;">...</span>';
+  if (isClicksLocked && localStorage.getItem("clickCount")) {
+    clickCountDisplay.textContent = localStorage.getItem("clickCount");
+  } else {
+    // If not locked, we don't optimistically load click cache.
+    clickCountDisplay.innerHTML = '<span class="loading-dots" style="opacity: 0.5;">...</span>';
+  }
 
   try {
     // 2. Fetch parallel to save time. Using Promise.allSettled so if one fails, the other can still succeed
@@ -122,6 +132,9 @@ async function initializeCounters() {
     if (clicksResponse.status === "fulfilled" && clicksResponse.value.ok) {
       const clicksData = await clicksResponse.value.json();
       clickCountDisplay.textContent = clicksData.count;
+
+      // We always sync the DB value as the real value to cache, but if it's not locked, 
+      // the user won't see it on the NEXT reload until the DB returns anyway.
       localStorage.setItem("clickCount", clicksData.count);
     } else {
       console.error("Failed to load click count");
@@ -131,8 +144,38 @@ async function initializeCounters() {
   }
 }
 
-// Click Counter Interaction
+// Click Lock Toggle
+if (clickLockBtn) {
+  clickLockBtn.addEventListener("click", () => {
+    const currentState = localStorage.getItem("clicksLocked") === "true";
+    const newState = !currentState;
+    localStorage.setItem("clicksLocked", newState);
+    clickLockBtn.textContent = newState ? "🔒" : "🔓";
+    clickLockBtn.title = newState ? "Unlock local click count" : "Lock local click count across reloads";
+
+    // Animation for lock
+    clickLockBtn.style.transform = "scale(0.8)";
+    setTimeout(() => clickLockBtn.style.transform = "scale(1)", 150);
+  });
+}
+
+// Click Counter Interaction + Frontend Debounce
+let clickCooldown = false;
+
 clickButton.addEventListener("click", async () => {
+  // Basic Anti-Abuse: Prevent rapid spamming (cooldown of 1 second)
+  if (clickCooldown) return;
+
+  clickCooldown = true;
+  clickButton.style.opacity = "0.7";
+  clickButton.style.cursor = "not-allowed";
+
+  setTimeout(() => {
+    clickCooldown = false;
+    clickButton.style.opacity = "1";
+    clickButton.style.cursor = "pointer";
+  }, 1000); // 1000ms cooldown
+
   // Animation
   clickButton.style.transform = "scale(0.95)";
   setTimeout(() => {
@@ -159,7 +202,7 @@ clickButton.addEventListener("click", async () => {
     console.error("Error updating clicks:", error);
     // Revert count if failed so UI remains accurate
     clickCountDisplay.textContent = currentCount;
-    console.warn("Could not register click. The backend might be experiencing issues with DynamoDB Updates.");
+    // We already show a warning if failing, no need to alert to user
   }
 });
 
