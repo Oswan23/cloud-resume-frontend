@@ -12,8 +12,10 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Initialize theme early to prevent white flash on load -->
     <script>
-        const savedTheme = localStorage.getItem("theme") || "light";
-        document.documentElement.setAttribute("data-theme", savedTheme);
+        (function () {
+            var theme = localStorage.getItem("theme") || "light";
+            document.documentElement.setAttribute("data-theme", theme);
+        })();
     </script>
 </head>
 
@@ -318,9 +320,9 @@
                 <div class="click-counter">
                     <button id="click-button" class="click-button">Click Me</button>
                     <p class="click-count-display">
-                        Total Clicks: <span id="click-count"></span>
+                        Total Clicks: <span id="click-count">0</span>
                         <button id="click-lock" class="click-lock" aria-label="Toggle click persistence"
-                            title="Lock local click count">🔓</button>
+                            title="Lock local click count"><i class="fa-solid fa-lock-open"></i></button>
                     </p>
                 </div>
             </div>

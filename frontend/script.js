@@ -92,55 +92,38 @@ const clickLockBtn = document.getElementById("click-lock");
 
 // Initialize both counters on page load
 async function initializeCounters() {
-  // 1. Optimistic loading from cache to prevent jarring "0" flashes
+  // 1. View Counter Optimistic Load
   const cachedViews = localStorage.getItem("viewCount");
-
-  // Click lock logic: only use cache if user locked it
-  const isClicksLocked = localStorage.getItem("clicksLocked") === "true";
-  if (clickLockBtn) {
-    clickLockBtn.textContent = isClicksLocked ? "🔒" : "🔓";
-    clickLockBtn.title = isClicksLocked ? "Unlock local click count" : "Lock local click count across reloads";
-  }
-
   if (cachedViews) viewCountDisplay.textContent = cachedViews;
   else viewCountDisplay.innerHTML = '<span class="loading-dots" style="opacity: 0.5;">...</span>';
 
-  if (isClicksLocked && localStorage.getItem("clickCount")) {
-    clickCountDisplay.textContent = localStorage.getItem("clickCount");
-  } else {
-    // If not locked, we don't optimistically load click cache.
-    clickCountDisplay.innerHTML = '<span class="loading-dots" style="opacity: 0.5;">...</span>';
+  // 2. Click Counter Local Session Logic
+  const isClicksLocked = localStorage.getItem("clicksLocked") === "true";
+
+  if (clickLockBtn) {
+    clickLockBtn.innerHTML = isClicksLocked ? '<i class="fa-solid fa-lock"></i>' : '<i class="fa-solid fa-lock-open"></i>';
+    clickLockBtn.title = isClicksLocked ? "Unlock local click count" : "Lock local click count across reloads";
   }
 
+  // Local clicks default to 0 on refresh unless locked
+  let initialClicks = 0;
+  if (isClicksLocked && localStorage.getItem("localSessionClicks")) {
+    initialClicks = parseInt(localStorage.getItem("localSessionClicks")) || 0;
+  } else {
+    localStorage.removeItem("localSessionClicks"); // Ensure it's clear
+  }
+  clickCountDisplay.textContent = initialClicks;
+
+  // Fetch true View Count from DB
   try {
-    // 2. Fetch parallel to save time. Using Promise.allSettled so if one fails, the other can still succeed
-    const [viewsResponse, clicksResponse] = await Promise.allSettled([
-      fetch(`${API_BASE}/views`, { method: "POST" }),
-      fetch(`${API_BASE}/clicks`, { method: "GET" })
-    ]);
-
-    // 3. Update Views
-    if (viewsResponse.status === "fulfilled" && viewsResponse.value.ok) {
-      const viewsData = await viewsResponse.value.json();
-      viewCountDisplay.textContent = viewsData.count;
-      localStorage.setItem("viewCount", viewsData.count);
-    } else {
-      console.error("Failed to load view count");
-    }
-
-    // 4. Update Clicks
-    if (clicksResponse.status === "fulfilled" && clicksResponse.value.ok) {
-      const clicksData = await clicksResponse.value.json();
-      clickCountDisplay.textContent = clicksData.count;
-
-      // We always sync the DB value as the real value to cache, but if it's not locked, 
-      // the user won't see it on the NEXT reload until the DB returns anyway.
-      localStorage.setItem("clickCount", clicksData.count);
-    } else {
-      console.error("Failed to load click count");
+    const response = await fetch(`${API_BASE}/views`, { method: "POST" });
+    if (response.ok) {
+      const data = await response.json();
+      viewCountDisplay.textContent = data.count;
+      localStorage.setItem("viewCount", data.count);
     }
   } catch (error) {
-    console.error("Error loading counters:", error);
+    console.error("Error loading view count:", error);
   }
 }
 
@@ -150,8 +133,16 @@ if (clickLockBtn) {
     const currentState = localStorage.getItem("clicksLocked") === "true";
     const newState = !currentState;
     localStorage.setItem("clicksLocked", newState);
-    clickLockBtn.textContent = newState ? "🔒" : "🔓";
+
+    clickLockBtn.innerHTML = newState ? '<i class="fa-solid fa-lock"></i>' : '<i class="fa-solid fa-lock-open"></i>';
     clickLockBtn.title = newState ? "Unlock local click count" : "Lock local click count across reloads";
+
+    // Manage session state persistence on toggle
+    if (!newState) {
+      localStorage.removeItem("localSessionClicks");
+    } else {
+      localStorage.setItem("localSessionClicks", clickCountDisplay.textContent);
+    }
 
     // Animation for lock
     clickLockBtn.style.transform = "scale(0.8)";
@@ -182,27 +173,25 @@ clickButton.addEventListener("click", async () => {
     clickButton.style.transform = "scale(1)";
   }, 100);
 
-  // Optimistic UI Update (instant feedback)
+  // Optimistic UI Update (local session tracking)
   let currentCount = parseInt(clickCountDisplay.textContent) || 0;
-  clickCountDisplay.textContent = currentCount + 1;
+  let newCount = currentCount + 1;
+  clickCountDisplay.textContent = newCount;
 
+  // Update persistence if locked
+  if (localStorage.getItem("clicksLocked") === "true") {
+    localStorage.setItem("localSessionClicks", newCount);
+  }
+
+  // Implicitly update backend (Global counter) without tying UI to it
   try {
-    const response = await fetch(`${API_BASE}/clicks`, {
+    await fetch(`${API_BASE}/clicks`, {
       method: "POST"
     });
-
-    if (!response.ok) throw new Error("Backend error - status " + response.status);
-
-    const data = await response.json();
-    // Update with authoritative value from server
-    clickCountDisplay.textContent = data.count;
-    localStorage.setItem("clickCount", data.count);
-
+    // We intentionally ignore the returned global count response here 
+    // to maintain the requested frontend local session behavior
   } catch (error) {
-    console.error("Error updating clicks:", error);
-    // Revert count if failed so UI remains accurate
-    clickCountDisplay.textContent = currentCount;
-    // We already show a warning if failing, no need to alert to user
+    console.error("Error pushing click to DB:", error);
   }
 });
 

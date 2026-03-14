@@ -816,18 +816,24 @@ footer {
 .click-lock {
   background: none;
   border: none;
-  font-size: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
   margin-left: 0.5rem;
   cursor: pointer;
-  opacity: 0.3;
-  transition: opacity 0.3s ease, transform 0.2s ease;
-  vertical-align: middle;
+  opacity: 0.4;
+  transition: opacity 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  vertical-align: baseline;
 }
 
 .click-lock:hover {
   opacity: 1;
+  color: var(--accent);
 }
 
 [data-theme="dark"] .click-lock {
-  filter: grayscale(0.5) brightness(1.2);
+  opacity: 0.3;
+}
+
+[data-theme="dark"] .click-lock:hover {
+  opacity: 1;
 }
