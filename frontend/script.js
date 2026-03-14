@@ -129,10 +129,6 @@ async function incrementViewCounter() {
 }
 
 
-// Initialize on page load
-document.addEventListener("DOMContentLoaded", () => {
-  incrementViewCounter();
-});
 
 // Active Navigation Link Highlighting
 const sections = document.querySelectorAll(".section")
@@ -161,6 +157,8 @@ window.addEventListener("scroll", () => {
 
 /* Projects carousel controls and See-more toggles (safe init) */
 document.addEventListener('DOMContentLoaded', () => {
+
+  /* Projects carousel controls and See-more toggles (safe init) */
   const carousel = document.querySelector('.projects-carousel')
   const prevBtn = document.querySelector('.carousel-nav.prev')
   const nextBtn = document.querySelector('.carousel-nav.next')
