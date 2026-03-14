@@ -2,6 +2,7 @@
 const themeToggle = document.getElementById("theme-toggle")
 const themeIcon = document.querySelector(".theme-icon")
 const html = document.documentElement
+const API_BASE = "https://fjwy1ub4ge.execute-api.us-east-1.amazonaws.com";
 
 // Load saved theme from localStorage
 const savedTheme = localStorage.getItem("theme") || "light"
@@ -89,60 +90,49 @@ const clickButton = document.getElementById("click-button")
 const clickCountDisplay = document.getElementById("click-count")
 let clickCount = 0
 
-// Load saved click count from localStorage
-const savedClickCount = localStorage.getItem("clickCount")
-if (savedClickCount) {
-  clickCount = Number.parseInt(savedClickCount, 10)
-  clickCountDisplay.textContent = clickCount
-}
+clickButton.addEventListener("click", async () => {
+  try {
+    const response = await fetch(`${API_BASE}/clicks`, {
+      method: "POST"
+    });
 
-clickButton.addEventListener("click", () => {
-  clickCount++
-  clickCountDisplay.textContent = clickCount
-  localStorage.setItem("clickCount", clickCount)
+    const data = await response.json();
+    clickCountDisplay.textContent = data.count;
 
-  // Add animation effect
-  clickButton.style.transform = "scale(0.95)"
+  } catch (error) {
+    console.error("Error updating clicks:", error);
+  }
+
+  // animation
+  clickButton.style.transform = "scale(0.95)";
   setTimeout(() => {
-    clickButton.style.transform = "scale(1)"
-  }, 100)
+    clickButton.style.transform = "scale(1)";
+  }, 100);
+});
 
-  // TODO: Send click count to AWS Lambda + DynamoDB
-  // Example: fetch('YOUR_API_GATEWAY_ENDPOINT', { method: 'POST', body: JSON.stringify({ clicks: clickCount }) });
-})
-
-// View Counter Placeholder
-const viewCountDisplay = document.getElementById("view-count")
-
-// Initialize view counter
-function initializeViewCounter() {
-  // TODO: Fetch view count from AWS API Gateway
-  // Example: fetch('YOUR_API_GATEWAY_ENDPOINT')
-  //     .then(response => response.json())
-  //     .then(data => {
-  //         viewCountDisplay.textContent = data.views;
-  //     });
-
-  // For now, use a placeholder
-  viewCountDisplay.textContent = "0"
-}
+// View Counter
+const viewCountDisplay = document.getElementById("view-count");
 
 // Increment view counter on page load
-function incrementViewCounter() {
-  // TODO: Send increment request to AWS Lambda
-  // Example: fetch('YOUR_API_GATEWAY_ENDPOINT/increment', { method: 'POST' })
-  //     .then(response => response.json())
-  //     .then(data => {
-  //         viewCountDisplay.textContent = data.views;
-  //     });
+async function incrementViewCounter() {
+  try {
+    const response = await fetch(`${API_BASE}/views`, {
+      method: "POST"
+    });
+
+    const data = await response.json();
+    viewCountDisplay.textContent = data.count;
+
+  } catch (error) {
+    console.error("Error updating views:", error);
+  }
 }
+
 
 // Initialize on page load
 document.addEventListener("DOMContentLoaded", () => {
-  initializeViewCounter()
-  // Uncomment when backend is ready:
-  // incrementViewCounter();
-})
+  incrementViewCounter();
+});
 
 // Active Navigation Link Highlighting
 const sections = document.querySelectorAll(".section")
@@ -174,6 +164,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const carousel = document.querySelector('.projects-carousel')
   const prevBtn = document.querySelector('.carousel-nav.prev')
   const nextBtn = document.querySelector('.carousel-nav.next')
+  
+  // Increment view counter on page load
+  incrementViewCounter();
 
   if (!carousel) return
 
