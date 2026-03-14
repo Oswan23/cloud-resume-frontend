@@ -36,7 +36,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       })
     }
   })
-  
+
   // Mobile hamburger menu toggle
   const menuToggle = document.querySelector(".menu-toggle");
   const navLinks = document.querySelector(".nav-links");
@@ -85,48 +85,83 @@ timelineItems.forEach((item) => {
   observer.observe(item)
 })
 
-// Click Counter Functionality
-const clickButton = document.getElementById("click-button")
-const clickCountDisplay = document.getElementById("click-count")
-let clickCount = 0
+// Counters Configuration
+const viewCountDisplay = document.getElementById("view-count");
+const clickButton = document.getElementById("click-button");
+const clickCountDisplay = document.getElementById("click-count");
 
+// Initialize both counters on page load
+async function initializeCounters() {
+  // 1. Optimistic loading from cache to prevent jarring "0" flashes
+  const cachedViews = localStorage.getItem("viewCount");
+  const cachedClicks = localStorage.getItem("clickCount");
+
+  if (cachedViews) viewCountDisplay.textContent = cachedViews;
+  else viewCountDisplay.innerHTML = '<span class="loading-dots" style="opacity: 0.5;">...</span>';
+
+  if (cachedClicks) clickCountDisplay.textContent = cachedClicks;
+  else clickCountDisplay.innerHTML = '<span class="loading-dots" style="opacity: 0.5;">...</span>';
+
+  try {
+    // 2. Fetch parallel to save time. Using Promise.allSettled so if one fails, the other can still succeed
+    const [viewsResponse, clicksResponse] = await Promise.allSettled([
+      fetch(`${API_BASE}/views`, { method: "POST" }),
+      fetch(`${API_BASE}/clicks`, { method: "GET" })
+    ]);
+
+    // 3. Update Views
+    if (viewsResponse.status === "fulfilled" && viewsResponse.value.ok) {
+      const viewsData = await viewsResponse.value.json();
+      viewCountDisplay.textContent = viewsData.count;
+      localStorage.setItem("viewCount", viewsData.count);
+    } else {
+      console.error("Failed to load view count");
+    }
+
+    // 4. Update Clicks
+    if (clicksResponse.status === "fulfilled" && clicksResponse.value.ok) {
+      const clicksData = await clicksResponse.value.json();
+      clickCountDisplay.textContent = clicksData.count;
+      localStorage.setItem("clickCount", clicksData.count);
+    } else {
+      console.error("Failed to load click count");
+    }
+  } catch (error) {
+    console.error("Error loading counters:", error);
+  }
+}
+
+// Click Counter Interaction
 clickButton.addEventListener("click", async () => {
+  // Animation
+  clickButton.style.transform = "scale(0.95)";
+  setTimeout(() => {
+    clickButton.style.transform = "scale(1)";
+  }, 100);
+
+  // Optimistic UI Update (instant feedback)
+  let currentCount = parseInt(clickCountDisplay.textContent) || 0;
+  clickCountDisplay.textContent = currentCount + 1;
+
   try {
     const response = await fetch(`${API_BASE}/clicks`, {
       method: "POST"
     });
 
+    if (!response.ok) throw new Error("Backend error - status " + response.status);
+
     const data = await response.json();
+    // Update with authoritative value from server
     clickCountDisplay.textContent = data.count;
+    localStorage.setItem("clickCount", data.count);
 
   } catch (error) {
     console.error("Error updating clicks:", error);
+    // Revert count if failed so UI remains accurate
+    clickCountDisplay.textContent = currentCount;
+    console.warn("Could not register click. The backend might be experiencing issues with DynamoDB Updates.");
   }
-
-  // animation
-  clickButton.style.transform = "scale(0.95)";
-  setTimeout(() => {
-    clickButton.style.transform = "scale(1)";
-  }, 100);
 });
-
-// View Counter
-const viewCountDisplay = document.getElementById("view-count");
-
-// Increment view counter on page load
-async function incrementViewCounter() {
-  try {
-    const response = await fetch(`${API_BASE}/views`, {
-      method: "POST"
-    });
-
-    const data = await response.json();
-    viewCountDisplay.textContent = data.count;
-
-  } catch (error) {
-    console.error("Error updating views:", error);
-  }
-}
 
 
 
@@ -162,9 +197,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const carousel = document.querySelector('.projects-carousel')
   const prevBtn = document.querySelector('.carousel-nav.prev')
   const nextBtn = document.querySelector('.carousel-nav.next')
-  
-  // Increment view counter on page load
-  incrementViewCounter();
+
+  // Initialize view and click counters
+  initializeCounters();
 
   if (!carousel) return
 
