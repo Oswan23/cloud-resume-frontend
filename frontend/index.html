@@ -79,15 +79,33 @@
                 <div class="education-grid">
                     <div class="education-card">
                         <h3>Bachelor of Science in Information Technology</h3>
-                        <p class="institution">George Mason University</p>
-                        <p class="date">2021 - 2025</p>
-                        <p>Relevant coursework: Data Structures, Algorithms, Web Development, Database Systems</p>
+                        <p class="institution">George Mason University — Fairfax, VA</p>
+                        <p class="date">May 2025</p>
+                        <p>Concentration in Cloud Computing · Dean's List: Spring 2022 – Spring 2025</p>
                     </div>
                     <div class="education-card">
-                        <h3>AWS Certified Solutions Architect</h3>
+                        <h3>AWS Certified Solutions Architect – Associate</h3>
                         <p class="institution">Amazon Web Services</p>
-                        <p class="date">2025-2028</p>
+                        <p class="date">2025 – 2028</p>
                         <p>Professional certification in cloud architecture and AWS services</p>
+                    </div>
+                    <div class="education-card">
+                        <h3>AWS Certified Cloud Practitioner</h3>
+                        <p class="institution">Amazon Web Services</p>
+                        <p class="date">2025</p>
+                        <p>Foundational certification validating cloud fluency and AWS core services</p>
+                    </div>
+                    <div class="education-card">
+                        <h3>Google Cloud AI Foundations</h3>
+                        <p class="institution">Google Cloud</p>
+                        <p class="date">2025</p>
+                        <p>Certification covering AI and machine learning foundations on Google Cloud</p>
+                    </div>
+                    <div class="education-card">
+                        <h3>CompTIA Network+</h3>
+                        <p class="institution">CompTIA</p>
+                        <p class="date">In Progress</p>
+                        <p>Industry-standard certification in networking fundamentals and security</p>
                     </div>
                 </div>
             </div>
@@ -99,62 +117,90 @@
                 <h2 class="section-title">Professional Experience</h2>
                 <div class="timeline">
                     <div class="timeline-item" data-animate>
-                        <div class="timeline-date">July 2025 - Present</div>
+                        <div class="timeline-date">Nov 2025 – Present</div>
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
-                            <h3>Junior Cloud Engineer </h3>
+                            <h3>Cloud Engineer</h3>
                             <p class="company">NecX Inc.</p>
-                            <ul>
-                                <li>Configured & Deployed secure Azure staging environments (Container Apps, PostgreSQL,
-                                    Log Analytics) within isolated VNets.</li>
-                                <li>Hardened network architecture using private endpoints, VPN gateways, and NSGs,
-                                    eliminating public exposure of 10+ cloud components.</li>
-                                <li>Implemented Entra ID RBAC and Azure Key Vault for centralized secret storage,
-                                    reducing manual credential handling.</li>
-                                <li>Built CI/CD pipelines with GitHub Actions and Azure Pipelines, reducing deployment
-                                    time by 40-50%.</li>
-                            </ul>
-                            <span class="tag">Azure</span><span class="tag">PostgreSQL</span><span
-                                class="tag">RBAC</span><span class="tag">CI/CD</span>
+                            <p class="role-summary">Architecting production-grade Azure infrastructure with IaC and Zero-Trust networking across the company's core services.</p>
+                            <div class="project-tags">
+                                <span class="tag">Azure Bicep</span><span class="tag">Zero-Trust</span><span class="tag">VPN</span><span class="tag">IaC</span><span class="tag">DNS</span>
+                            </div>
+                            <div class="experience-details" hidden>
+                                <ul>
+                                    <li>Production Environment Architecture: Architecting high-scale production environment using Azure Bicep (IaC), transitioning the company from manual/CLI deployments to a fully automated, reproducible infrastructure-as-code model.</li>
+                                    <li>Zero-Trust Network Engineering: Designed a secure network backbone using Private Endpoints and NSGs, eliminating 100% of public internet exposure for core databases and applications.</li>
+                                    <li>Secure Access Management: Engineered a Point-to-Site VPN integrated with Entra ID authentication, providing developers secure, encrypted access to isolated subnets.</li>
+                                    <li>Hybrid DNS & Connectivity: Implemented a custom DNS forwarding solution using Nginx and DNSMasq, solving complex private endpoint resolution issues and improving cross-environment connectivity reliability.</li>
+                                    <li>Operational Cost Optimization: Led a cost-reduction initiative by migrating DNS services from containerized instances to right-sized VMs, reducing compute spend while maintaining 99.9% service availability.</li>
+                                </ul>
+                            </div>
+                            <button class="experience-toggle" aria-expanded="false">See details</button>
                         </div>
                     </div>
 
                     <div class="timeline-item" data-animate>
-                        <div class="timeline-date">Aug 2024 - May 2025</div>
+                        <div class="timeline-date">July 2025 – Oct 2025</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Cloud Engineering Intern</h3>
+                            <p class="company">NecX Inc.</p>
+                            <p class="role-summary">Provisioned staging environments and built GitHub Actions pipelines that cut deployment cycle times by 50%.</p>
+                            <div class="project-tags">
+                                <span class="tag">Azure</span><span class="tag">PostgreSQL</span><span class="tag">GitHub Actions</span><span class="tag">Key Vault</span>
+                            </div>
+                            <div class="experience-details" hidden>
+                                <ul>
+                                    <li>Staging Environment Deployment: Provisioned multi-tier environments using Azure Container Apps and PostgreSQL, providing a stable validation platform for 3+ microservices.</li>
+                                    <li>CI/CD Automation: Developed and maintained GitHub Actions pipelines, reducing deployment cycle times by 50% and ensuring consistent delivery across staging branches.</li>
+                                    <li>Security Hardening: Conducted initial migration of credentials from insecure .env files to Azure Key Vault, establishing the foundation for the company's secret management policy.</li>
+                                </ul>
+                            </div>
+                            <button class="experience-toggle" aria-expanded="false">See details</button>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-animate>
+                        <div class="timeline-date">Aug 2024 – May 2025</div>
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
                             <h3>Time & Product Manager</h3>
-                            <p class="company">Dreamer Mother In Action (DMIA)</p>
-                            <ul>
-                                <li>Collaborated with stakeholders to translate business needs into scalable digital
-                                    solutions for event management.</li>
-                                <li>Designed & Implemented solutions using Eventbrite, Zapier, and Google Business
-                                    tools, reducing manual promotion time by 60-70%.</li>
-                            </ul>
-                            <span class="tag">Zapier</span><span class="tag">Agile</span><span
-                                class="tag">Automation</span>
+                            <p class="company">Dreamers Mothers In Action (DMIA)</p>
+                            <p class="role-summary">Digitized event management workflows for a nonprofit, saving 10–15 hours per event through Eventbrite, Zapier, and automated reporting dashboards.</p>
+                            <div class="project-tags">
+                                <span class="tag">Zapier</span><span class="tag">Agile</span><span class="tag">Automation</span>
+                            </div>
+                            <div class="experience-details" hidden>
+                                <ul>
+                                    <li>Collaborated with a team of 6 and nonprofit sponsor to gather and document technical requirements for digitizing and automating event management outreach and reporting workflows.</li>
+                                    <li>Designed and implemented integrated solutions using Eventbrite, Sender, Zapier, and Google Business tools, reducing manual promotion time by 60–70% and saving 10–15 hours per event.</li>
+                                    <li>Facilitated technical requirements gathering sessions with stakeholders to document functional specifications and translate business needs into scalable digital solutions.</li>
+                                    <li>Developed automated reporting dashboards and multilingual event pages, enabling real-time analytics and data-driven decision-making.</li>
+                                </ul>
+                            </div>
+                            <button class="experience-toggle" aria-expanded="false">See details</button>
                         </div>
                     </div>
 
                     <div class="timeline-item" data-animate>
-                        <div class="timeline-date">Mar 2024 - May 2025 </div>
+                        <div class="timeline-date">Mar 2024 – May 2025</div>
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
-                            <h3>Facilitator, Experiential Learnings </h3>
+                            <h3>Facilitator, Experiential Learnings</h3>
                             <p class="company">The EDGE, George Mason Recreation</p>
-                            <ul>
-                                <li>Fostered open communication and collaboration within diverse groups, typically 10-
-                                    12 participants, promoting learning, trust, teamwork</li>
-                                <li>Adapted program elements to individual and group needs, driving innovation and
-                                    improving group dynamics.</li>
-                            </ul>
-                            <span class="tag">Communication </span>
-                            <span class="tag">Leadership</span>
-                            <span class="tag">Team Dynamics</span>
-                            <span class="tag">Process Improvement</span>
+                            <p class="role-summary">Led experiential learning sessions for groups of 10–12, building communication, trust, and collaborative problem-solving skills.</p>
+                            <div class="project-tags">
+                                <span class="tag">Communication</span><span class="tag">Leadership</span><span class="tag">Team Dynamics</span><span class="tag">Process Improvement</span>
+                            </div>
+                            <div class="experience-details" hidden>
+                                <ul>
+                                    <li>Fostered open communication and collaboration within diverse groups, typically 10–12 participants, promoting learning, trust, and teamwork.</li>
+                                    <li>Adapted program elements to individual and group needs, driving innovation and improving group dynamics.</li>
+                                </ul>
+                            </div>
+                            <button class="experience-toggle" aria-expanded="false">See details</button>
                         </div>
                     </div>
-
 
                     <div class="timeline-item" data-animate>
                         <div class="timeline-date">Summer 2024</div>
@@ -162,14 +208,17 @@
                         <div class="timeline-content">
                             <h3>Web3 Security Data Analytics Extern</h3>
                             <p class="company">Webacy</p>
-                            <ul>
-                                <li>Automated data workflows in Python to support risk profiling and intrusion
-                                    detection[cite: 83].</li>
-                                <li>Conducted smart contract vulnerability analysis and enhanced clustering for threat
-                                    detection[cite: 84].</li>
-                            </ul>
-                            <span class="tag">Python</span><span class="tag">Smart Contracts</span><span
-                                class="tag">Web3</span>
+                            <p class="role-summary">Automated risk profiling workflows in Python and conducted smart contract vulnerability analysis for a Web3 security firm.</p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span><span class="tag">Smart Contracts</span><span class="tag">Web3</span>
+                            </div>
+                            <div class="experience-details" hidden>
+                                <ul>
+                                    <li>Automated data workflows in Python to support risk profiling and intrusion detection.</li>
+                                    <li>Conducted smart contract vulnerability analysis and enhanced clustering for threat detection.</li>
+                                </ul>
+                            </div>
+                            <button class="experience-toggle" aria-expanded="false">See details</button>
                         </div>
                     </div>
                 </div>
@@ -184,6 +233,30 @@
                 <div class="projects-carousel-wrapper">
                     <button class="carousel-nav prev" aria-label="Previous project">‹</button>
                     <div class="projects-carousel" role="list" tabindex="0">
+                        <article class="project-card project-slide" role="listitem">
+                            <h3>Crex: Manga Translation Pipeline</h3>
+                            <p class="project-summary">Architected an asynchronous, serverless pipeline using S3 event
+                                triggers and AWS Lambda to automate high-throughput image processing and multi-stage AI
+                                translation.</p>
+                            <div class="project-more" hidden>
+                                <p>Developed modular microservices for OCR and LLM-based translation with custom
+                                    error-handling and retry logic to ensure data integrity across API boundaries.
+                                    Engineered CI/CD and IaC workflows using AWS SAM and GitHub Actions. Implemented
+                                    structured CloudWatch logging and a DynamoDB NoSQL schema for low-latency metadata
+                                    retrieval and system traceability.</p>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">Node.js</span>
+                                <span class="tag">AWS Lambda</span>
+                                <span class="tag">GCP OCR</span>
+                                <span class="tag">AI</span>
+                                <span class="tag">AWS SAM</span>
+                                <span class="tag">DynamoDB</span>
+                                <span class="tag">CloudWatch</span>
+                            </div>
+                            <button class="see-more" aria-expanded="false">See more</button>
+                        </article>
+
                         <article class="project-card project-slide" role="listitem">
                             <h3>Cloud Resume Challenge</h3>
                             <p class="project-summary">Built a serverless resume website using AWS services including
@@ -270,44 +343,83 @@
                 <h2 class="section-title">Skills</h2>
                 <div class="skills-grid">
                     <div class="skill-category">
-                        <h3>☁️ Cloud & Infrastructure</h3>
-                        <ul>
-                            <li>AWS (EC2, S3, Lambda, RDS, DynamoDB ... )</li>
-                            <li>Azure(Container Apps, Virtual Networks...)</li>
-                            <li>IAC - Cloudformation, ARM/Bicep</li>
-                            <li>Linux Systems</li>
-                            <li>Networking</li>
-                            <li>Cost Optimization & Cloud Monitoring</li>
-                        </ul>
+                        <h3>Programming Languages</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">PowerShell</span>
+                            <span class="skill-tag">Bash</span>
+                            <span class="skill-tag">Shell</span>
+                        </div>
                     </div>
                     <div class="skill-category">
-                        <h3>🧑🏽‍💻DevOps & Automation</h3>
-                        <ul>
-                            <li>CI/CD Pipelines (GitHub Actions, CodePipeline) </li>
-                            <li>Docker & Containerization</li>
-                            <li>Version Control (Git, GitHub)</li>
-                            <li>Scripting (Python, Bash, CLI)</li>
-                        </ul>
+                        <h3>Cloud & Infrastructure</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">AWS EC2</span>
+                            <span class="skill-tag">AWS Lambda</span>
+                            <span class="skill-tag">S3</span>
+                            <span class="skill-tag">RDS</span>
+                            <span class="skill-tag">DynamoDB</span>
+                            <span class="skill-tag">VPC</span>
+                            <span class="skill-tag">IAM</span>
+                            <span class="skill-tag">CloudWatch</span>
+                            <span class="skill-tag">SQS</span>
+                            <span class="skill-tag">API Gateway</span>
+                            <span class="skill-tag">Azure Container Apps</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">Key Vault</span>
+                            <span class="skill-tag">Entra ID</span>
+                            <span class="skill-tag">Log Analytics</span>
+                            <span class="skill-tag">Cost Optimization</span>
+                        </div>
                     </div>
                     <div class="skill-category">
-                        <h3>🌐 Networking & Security</h3>
-                        <ul>
-                            <li>TCP/IP, DNS, VPNs, VLANs</li>
-                            <li>IAM & RBAC</li>
-                            <li>Firewalls & Network Segmentation </li>
-                            <li>Security Auditing & Compliance Principles </li>
-                            <li>Wireshark • Nmap • Kali Linux </li>
-                        </ul>
+                        <h3>DevOps & Automation</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Azure Bicep</span>
+                            <span class="skill-tag">AWS SAM</span>
+                            <span class="skill-tag">CloudFormation</span>
+                            <span class="skill-tag">GitHub Actions</span>
+                            <span class="skill-tag">Azure Pipelines</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Git</span>
+                        </div>
                     </div>
                     <div class="skill-category">
-                        <h3>Data & Tools</h3>
-                        <ul>
-                            <li>Git & GitHub</li>
-                            <li>VS Code</li>
-                            <li>Postman</li>
-                            <li>Agile/Scrum</li>
-                            <li>SQL • MySQL • Excel </li>
-                        </ul>
+                        <h3>Networking & Security</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">VNets & Subnets</span>
+                            <span class="skill-tag">NSGs</span>
+                            <span class="skill-tag">Private Endpoints</span>
+                            <span class="skill-tag">VPN Gateways</span>
+                            <span class="skill-tag">DNS Forwarding</span>
+                            <span class="skill-tag">IAM & RBAC</span>
+                            <span class="skill-tag">MFA & PKI</span>
+                            <span class="skill-tag">TCP/IP</span>
+                            <span class="skill-tag">Firewalls</span>
+                            <span class="skill-tag">Wireshark</span>
+                            <span class="skill-tag">Nmap</span>
+                            <span class="skill-tag">Kali Linux</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Systems & Tools</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Linux (Ubuntu, Kali)</span>
+                            <span class="skill-tag">Windows</span>
+                            <span class="skill-tag">macOS</span>
+                            <span class="skill-tag">Postman</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">Jira</span>
+                            <span class="skill-tag">Excel</span>
+                            <span class="skill-tag">Google Sheets</span>
+                            <span class="skill-tag">Microsoft 365</span>
+                            <span class="skill-tag">Agile/Scrum</span>
+                        </div>
                     </div>
                 </div>
             </div>

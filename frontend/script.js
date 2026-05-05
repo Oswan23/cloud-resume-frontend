@@ -251,6 +251,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'ArrowLeft') prevBtn && prevBtn.click()
   })
 
+  // Experience details toggles
+  document.querySelectorAll('.experience-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const details = btn.previousElementSibling
+      const expanded = btn.getAttribute('aria-expanded') === 'true'
+      if (expanded) {
+        details.setAttribute('hidden', '')
+        btn.setAttribute('aria-expanded', 'false')
+        btn.textContent = 'See details'
+      } else {
+        details.removeAttribute('hidden')
+        btn.setAttribute('aria-expanded', 'true')
+        btn.textContent = 'Hide details'
+      }
+    })
+  })
+
   // See-more toggles
   carousel.querySelectorAll('.see-more').forEach((btn) => {
     btn.addEventListener('click', (e) => {
